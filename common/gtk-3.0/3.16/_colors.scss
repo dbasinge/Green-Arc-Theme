@@ -8,7 +8,8 @@ $bg_color: #f9fafb;
 $fg_color: #5c616c;
 
 $selected_fg_color: #ffffff;
-$selected_bg_color: #5294E2;
+//$selected_bg_color: #5294E2; //original color
+$selected_bg_color: #5bffc5;
 $selected_borders_color: darken($selected_bg_color, 20%);
 $borders_color: darken($bg_color,9%);
 
