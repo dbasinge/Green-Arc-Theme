@@ -244,7 +244,7 @@ StScrollBar {
 .end-session-dialog-subject { //this should be a generic header class
   @include fontsize($font-size * 1.2);
   font-weight: bold;
-  color: $fg_color;
+  color: $fsg_color;
 }
 
 //
