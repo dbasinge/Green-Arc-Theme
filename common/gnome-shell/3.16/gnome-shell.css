@@ -995,7 +995,7 @@ StScrollBar {
   .nm-dialog-header-icon {
     icon-size: 32px; }
   .nm-dialog-scroll-view {
-    border: 1px solid #dbdfe3;
+    border: 1px solid #eff1f2;
     border-radius: 2px;
     background-color: #ffffff; }
   .nm-dialog-header {
@@ -1509,7 +1509,7 @@ StScrollBar {
   color: pink; }
 
 .legacy-tray {
-  background-color: rgba(43, 46, 55, 0.95); }
+  background-color: rgba(50, 53, 65, 0.95); }
   .legacy-tray:ltr {
     border-radius: 0 2px 0 0;
     border-left-width: 0; }
