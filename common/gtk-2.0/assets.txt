@@ -82,7 +82,6 @@ handle-h
 handle-v
 line-h
 line-v
-menu_line_h
 menuitem
 menubar_button
 null
@@ -96,6 +95,8 @@ slider-insensitive
 slider-prelight
 trough-horizontal
 trough-vertical
+trough-horizontal-active
+trough-vertical-active
 slider-horiz
 slider-horiz-active
 slider-horiz-insens
