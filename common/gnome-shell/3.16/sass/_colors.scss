@@ -11,7 +11,7 @@ $fg_color: if($variant =='light', #5c616c, #D3DAE3);
 $selected_fg_color: #ffffff;
 $selected_bg_color: #5BFF96; //our Green color
 $selected_borders_color: darken($selected_bg_color, 20%);
-$borders_color: if($variant =='light', darken($bg_color,15%), darken($bg_color,6%));
+$borders_color: if($variant =='light', darken($bg_color,9%), darken($bg_color,6%));
 
 $link_color: if($variant == 'light', darken($selected_bg_color,10%),
                                      lighten($selected_bg_color,20%));
