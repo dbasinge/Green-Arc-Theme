@@ -324,7 +324,7 @@ $_dot_color: $selected_bg_color;
 
   @include button(normal);
 
-  &.flat { 
+  &.flat {
     @include button(undecorated);
     background-color: transparentize($button_bg, 1);
     border-color: transparentize($button_border, 1);
@@ -457,9 +457,9 @@ $_dot_color: $selected_bg_color;
       }
       &.flat:insensitive {
         @include button(undecorated);
-        color: transparentize($b_color, 0.35);
+        color: $insensitive_fg_color;
       }
-      &:insensitive { opacity: 0.75; }
+      &:insensitive { @include button(insensitive); }
     }
   }
 
@@ -1040,7 +1040,7 @@ GtkComboBox {
   border-image: linear-gradient(to bottom, opacify($header_bg, 1),
                                            darken($header_bg, 7%)) 1 0 1 0; //temporary hack for rhythmbox 3.1
 
-  &:backdrop { background-color: opacify($header_bg_backdrop, 1); }
+  //&:backdrop { background-color: opacify($header_bg_backdrop, 1); }
 
   .separator { @extend %header_separator; }
 
@@ -1088,12 +1088,7 @@ GtkComboBox {
     border-color: $header_border;
   }
 
-  &:backdrop {
-    color: transparentize($header_fg, 0.3);
-    background-color: opacify($header_bg_backdrop, 1);
-
-    .csd & { background-color: $header_bg_backdrop; }  // Transparent header-bars only in csd windows
-  }
+  &:backdrop { color: transparentize($header_fg, 0.3); }
 
   .title {
     padding: 0px 12px;
@@ -1176,20 +1171,18 @@ GtkComboBox {
   .maximized & {
     background-color: opacify($header_bg, 1);
     border-color: opacify($header_border, 1);
-
-    &:backdrop {
-      background-color: opacify($header_bg_backdrop, 1);
-      border-color: opacify($header_border, 1);
-    }
   }
 
-  &.default-decoration {
-    padding-top: 5px;	    // less padding for ssd
-    padding-bottom: 5px;  //
+  &.default-decoration,
+  .csd &.default-decoration,             // needed under wayland, since all gtk3 windows are csd windows
+  &.default-decoration:backdrop,
+  .csd &.default-decoration:backdrop {
+    padding-top: 5px;	                   // less padding for ssd
+    padding-bottom: 5px;                 //
     background-color: opacify($header_bg, 1);
     border-bottom-width: 0;
 
-    &:backdrop { background-color: opacify($header_bg_backdrop, 1); }
+    .maximized & { background-color: opacify($header_bg, 1); }
   }
 }
 
@@ -1213,7 +1206,7 @@ GtkComboBox {
   .maximized & {
     background-color: opacify($header_bg, 1);
 
-    &:backdrop { background-color: opacify($header_bg_backdrop, 1); }
+    &:backdrop, .csd &:backdrop { background-color: opacify($header_bg_backdrop, 1); }
   }
 }
 
@@ -1415,11 +1408,8 @@ GtkComboBox {
       &:active, &:checked {
         @include button(suggested_destructive, darken($b_color, 10%));
       }
-      &.flat:insensitive {
-        @include button(undecorated);
-        color: transparentize($b_color, 0.35);
-      }
-      &:insensitive { opacity: 0.75; }
+      &.flat:insensitive,
+      &:insensitive { @include button(header-insensitive); }
     }
     .button.#{$b_type}:backdrop,
     .button.#{$b_type}:backdrop {
@@ -1592,16 +1582,17 @@ GtkTreeView.view {                                      // treeview grid lines a
   &.progressbar { // progress bar in treeviews
     color: $selected_fg_color;
     border-radius: 3px;
+    background-image: linear-gradient(to bottom, $selected_bg_color);
 
     &:selected {
       color: $selected_bg_color;
       box-shadow: none;
-      background-color: $selected_fg_color;
+      background-image: linear-gradient(to bottom, $selected_fg_color);
     }
   }
   &.trough, &.trough:selected { // progress bar trough in treeviews
     color: $fg_color;
-    background-color: $button_border;
+    background-image: linear-gradient(to bottom, $button_border);
     border-radius: 3px;
     border-width: 0;
   }
@@ -1674,7 +1665,10 @@ column-header.button.dnd { // for treeview-like derive widgets
   background-color: opacify($header_bg, 1);
   color: $header_fg;
 
-  &:backdrop { background-color: opacify($header_bg_backdrop, 1); }
+  &:backdrop {
+    color: transparentize($header_fg, 0.3);
+    //background-color: opacify($header_bg_backdrop, 1);
+  }
 
   & > .menuitem {
     padding: 6px 8px;
@@ -1692,7 +1686,7 @@ column-header.button.dnd { // for treeview-like derive widgets
   }
 }
 
-.menu, .popup {
+.menu {
   margin: 4px;
   padding: 0;
   border-radius: 0;
@@ -1737,6 +1731,8 @@ column-header.button.dnd { // for treeview-like derive widgets
     }
   }
 }
+
+.csd .popup { border-radius: 2px; }
 
 .menuitem .accelerator { color: gtkalpha(currentColor,0.55); }
 
@@ -2157,6 +2153,13 @@ GtkSwitch {
       -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"),
                                     url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
     }
+
+    %osd_check_radio {
+      .#{$w}#{$s} {
+        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-dark.png"),
+                                      url("assets/#{$a}#{$as}-dark@2.png"));
+      }
+    }
     // the borders of checks and radios are
     // too similar in luminosity to the selected background color, hence
     // we need special casing.
@@ -2557,7 +2560,6 @@ GtkCalendar {
   &:inconsistent { color: gtkalpha(currentColor,0.55); }
   &.highlight {
     color: $fg_color;
-    background-color: transparentize($button_border, 0.5);
   }
 }
 
@@ -2589,31 +2591,6 @@ GtkCalendar {
         @extend %middle_button;
       }
 
-      &:focus {
-        color: $selected_bg_color;
-
-        &:active, &:checked { color: $selected_fg_color; }
-      }
-
-//      @each $b_type, $b_color in (suggested-action, $selected_bg_color),
-//                                 (destructive-action, $destructive_color) {
-//        &.#{$b_type} {
-//          @include button(normal, $b_color, white, $edge:none);
-//          @extend %middle_button;
-//          &:hover {
-//            @include button(hover, $b_color, white, $edge:none);
-//            @extend %middle_button;
-//          }
-//          &:active {
-//            @include button(active, $b_color, white, $edge:none);
-//            @extend %middle_button;
-//          }
-//          &:insensitive {
-//            @include button(insensitive, $edge:none);
-//           @extend %middle_button;
-//          }
-//        }
-//      }
       &:first-child{ @extend %first_button; }
       &:last-child { @extend %last_button; }
     }
@@ -2717,6 +2694,23 @@ GtkPlacesSidebar.sidebar {
     @extend %needs_attention;
     background-size: 6px 6px, 0 0;
   }
+}
+
+//
+// File chooser
+//
+GtkPlacesView {
+  .server-list-button > GtkImage {
+    transition: 200ms $ease-out-quad;
+    -gtk-icon-transform: rotate(0turn);
+  }
+
+  .server-list-button:checked > GtkImage {
+    transition: 200ms $ease-out-quad;
+    -gtk-icon-transform: rotate(-0.5turn);
+  }
+
+  .list-row.activatable:hover { background-color: transparent; }
 }
 
 //
@@ -2964,6 +2958,10 @@ GtkVolumeButton.button { padding: 8px; }
   &.tiled {
     border-radius: 0;
   }
+  &.popup {
+    box-shadow: none;
+    border-radius: 0;
+  }
   // server-side decorations as used by mutter
   &.ssd {
     border-radius: if($darker=='false' and $variant=='light', 4px 4px 0 0, 3px 3px 0 0);
@@ -2972,7 +2970,7 @@ GtkVolumeButton.button { padding: 8px; }
     &.maximized { border-radius: 0; }
   }
   &.csd {
-    &.popup, &.menu {
+    &.popup {
       border-radius: 2px;
       box-shadow: 0 3px 6px if($variant == 'light', $_wm_border, transparentize($_wm_border, 0.1)),
                   0 0 0 1px if($variant == 'light', $_wm_border, darken($bg_color, 10%));
@@ -3003,11 +3001,10 @@ GtkVolumeButton.button { padding: 8px; }
   }
 
   .button.titlebutton {
-    padding: 7px 4px;
+    padding: 6px 4px;
 
     @include button(undecorated);
     background-color: transparentize($header_bg, 1);
-    border-width: 0;
 
     &:hover {
       @include button(header-hover);
@@ -3022,6 +3019,7 @@ GtkVolumeButton.button { padding: 8px; }
       background-color: transparent;
       background-position: center;
       background-repeat: no-repeat;
+      border-width: 0;
 
       &:backdrop { opacity: 1; }
     }

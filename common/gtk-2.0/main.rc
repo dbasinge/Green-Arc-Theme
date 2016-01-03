@@ -27,7 +27,7 @@ style "default" {
 
   GtkScrollbar::trough-border = 0
   GtkRange::trough-border = 0
-  GtkRange::slider-width = 11
+  GtkRange::slider-width = 13
   GtkRange::stepper-size = 0
 
   GtkScrollbar::activate-slider = 1
@@ -37,11 +37,8 @@ style "default" {
   GtkScrolledWindow::scrollbar-spacing = 0
   GtkScrolledWindow::scrollbars-within-bevel = 1
 
-  GtkVScale::slider_length = 15
-  GtkVScale::slider_width = 15
-  GtkHScale::slider_length = 15
-  GtkHScale::slider_width = 15
-
+  GtkScale::slider_length = 15
+  GtkScale::slider_width = 15
   GtkScale::trough-side-details = 1
 
   GtkProgressBar::min-horizontal-bar-height = 8
@@ -556,7 +553,7 @@ style "scrollbar" {
     image {
       function = BOX
       detail = "trough"
-      file = "assets/trough-scrollbar.png"
+      file = "assets/trough-scrollbar-horiz.png"
       border = { 2, 2, 3, 3 }
       stretch = TRUE
       orientation = HORIZONTAL
@@ -565,7 +562,7 @@ style "scrollbar" {
     image {
       function = BOX
       detail = "trough"
-      file = "assets/trough-scrollbar.png"
+      file = "assets/trough-scrollbar-vert.png"
       border = { 3, 3, 2, 2 }
       stretch = TRUE
       orientation = VERTICAL
@@ -1878,7 +1875,7 @@ style "range" {
       function = BOX
       detail = "trough-upper"
       file = "assets/trough-horizontal.png"
-      border = { 4, 4, 0, 0 }
+      border = { 8, 8, 0, 0 }
       stretch = TRUE
       orientation = HORIZONTAL
     }
@@ -1887,7 +1884,7 @@ style "range" {
       function = BOX
       detail = "trough-lower"
       file = "assets/trough-horizontal-active.png"
-      border = { 4, 4, 0, 0 }
+      border = { 8, 8, 0, 0 }
       stretch = TRUE
       orientation = HORIZONTAL
     }
@@ -1896,7 +1893,7 @@ style "range" {
       function = BOX
       detail = "trough-upper"
       file = "assets/trough-vertical.png"
-      border = { 0, 0, 4, 4 }
+      border = { 0, 0, 8, 8 }
       stretch = TRUE
       orientation = VERTICAL
     }
@@ -1905,7 +1902,7 @@ style "range" {
       function = BOX
       detail = "trough-lower"
       file = "assets/trough-vertical-active.png"
-      border = { 0, 0, 4, 4 }
+      border = { 0, 0, 8, 8 }
       stretch = TRUE
       orientation = VERTICAL
     }

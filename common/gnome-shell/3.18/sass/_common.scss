@@ -782,6 +782,9 @@ StScrollBar {
   font-weight: bold;
   height: 2.1em;
   min-height: 27px;
+  background-gradient-direction: none;
+  background-color: transparent;
+  border-bottom-width: 0;
   border-image: url('common-assets/panel/panel.svg') 1 1 1 1;
 
   // Fix dynamic top bar extension
@@ -1522,20 +1525,6 @@ StScrollBar {
     height: 2px;
     margin-bottom: 6px;
     background-color: $selected_bg_color;
-  }
-}
-
-#dashtodockContainer {
-  .app-well-app-running-dot {
-    background: none;
-    width: 28px;
-    height: 4px;
-  }
-
-  @each $var in 1, 2, 3, 4 {
-    .running#{$var} .app-well-app-running-dot {
-      background-image: url("common-assets/dash/running#{$var}.svg");
-    }
   }
 }
 

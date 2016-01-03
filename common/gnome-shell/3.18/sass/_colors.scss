@@ -2,16 +2,17 @@
 // it gets @if ed depending on $variant
 
 
-
-$base_color: if($variant =='light', #ffffff, #5c616c);
+$base_color: if($variant =='light', #ffffff, #7c7c7c);
 $text_color: if($variant == 'light', #5c616c, #D3DAE3);
-$bg_color: if($variant =='light', #F5F6F7, #383c4a);
-$fg_color: if($variant =='light', #5c616c, #D3DAE3);
+$bg_color: if($variant =='light', #F5F6F7, #828282);
+$fg_color: if($variant =='light', #8a8a8a, #bec5ce);
 
 $selected_fg_color: #ffffff;
+//$selected_bg_color: #5294E2;
 $selected_bg_color: #5BFF96; //our Green color
-$selected_borders_color: darken($selected_bg_color, 20%);
-$borders_color: if($variant =='light', darken($bg_color,15%), darken($bg_color,6%));
+//$selected_borders_color: darken($selected_bg_color, 20%);
+$selected_borders_color: rgba(70, 70, 70, 0.4);
+$borders_color: if($variant =='light', darken($bg_color,9%), darken($bg_color,6%));
 
 $link_color: if($variant == 'light', darken($selected_bg_color,10%),
                                      lighten($selected_bg_color,20%));
@@ -32,8 +33,8 @@ $insensitive_bg_color: if($variant == 'light', mix($bg_color, $base_color, 40%),
 $header_bg: red;
 @if $transparency=='true' and $variant=='light' { $header_bg: transparentize(#e7e8eb, 0.05); }
 @if $transparency=='false' and $variant=='light' { $header_bg: #e7e8eb; }
-@if $transparency=='true' and ($variant=='dark' or $darker=='true') { $header_bg: transparentize(#2f343f, 0.03); }
-@if $transparency=='false' and ($variant=='dark' or $darker=='true') { $header_bg: #2f343f; }
+@if $transparency=='true' and ($variant=='dark' or $darker=='true') { $header_bg: transparentize(#8a8a8a, 0.03); }
+@if $transparency=='false' and ($variant=='dark' or $darker=='true') { $header_bg: #5d7583; }
 
 $header_bg_backdrop: if($darker == 'true' or $variant == 'dark', lighten($header_bg, 1.5%), lighten($header_bg, 3%));
 
@@ -42,7 +43,7 @@ $header_border: if($variant == 'light' and $darker=='false', darken($header_bg, 
 $header_fg: if($variant == 'light', saturate(transparentize($fg_color, 0.2), 10%), saturate(transparentize($fg_color, 0.2), 10%));
 $header_fg: if($darker == 'true', saturate(transparentize(#D3DAE3, 0.2), 10%), $header_fg);
 
-$dark_sidebar_bg: if($transparency == 'true', transparentize(#353945, 0.05), #353945);
+$dark_sidebar_bg: if($transparency == 'true', transparentize(#8a8a8a, 0.05), #8a8a8a);
 $dark_sidebar_fg: #BAC3CF;
 $dark_sidebar_border: if($variant == 'light', $dark_sidebar_bg, darken($dark_sidebar_bg, 5%));
 
@@ -57,9 +58,9 @@ $osd_entry_border: transparentize(darken($osd_bg_color, 12%), 0.6);
 
 $osd_insensitive_bg_color: darken($osd_bg_color, 3%);
 $osd_insensitive_fg_color: mix($osd_fg_color, opacify($osd_bg_color, 1), 30%);
-$osd_borders_color: transparentize(black, 0.3);
+$osd_borders_color: transparentize(#000000, 0.3);
 
-$panel_bg: darken($dark_sidebar_bg, 7%);
+$panel_bg: darken($dark_sidebar_bg, 4.7%);
 $panel_fg: $dark_sidebar_fg;
 
 $entry_bg: if($variant=='light', $base_color, lighten($base_color, 0%));

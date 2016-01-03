@@ -1,20 +1,20 @@
 # Arc Theme
 
-Arc is a flat theme with transparent elements for GTK 3, GTK 2 and Gnome-Shell. It supports GTK 3 and GTK 2 based desktop environments like Gnome, Unity, Budgie, Pantheon, XFCE, Mate, etc.
+Arc is a flat theme with transparent elements for GTK 3, GTK 2 and Gnome-Shell which supports GTK 3 and GTK 2 based desktop environments like Gnome, Unity, Budgie, Pantheon, XFCE, Mate, etc.
 
 ###Arc is available in three variants 
 
 #####Arc
 
-![alt tag](http://i.imgur.com/Ph5ObOa.png)
+![A screenshot of the Arc theme](http://i.imgur.com/Ph5ObOa.png)
 
 #####Arc-Darker
 
-![alt tag](http://i.imgur.com/NC6dqyl.png)
+![A screenshot of the Arc-Darker theme](http://i.imgur.com/NC6dqyl.png)
 
 #####Arc-Dark
 
-![alt tag](http://i.imgur.com/5AGlCnA.png)
+![A screenshot of the Arc-Dark theme](http://i.imgur.com/5AGlCnA.png)
 
 
 ### Requirements
@@ -31,16 +31,16 @@ Arc is a flat theme with transparent elements for GTK 3, GTK 2 and Gnome-Shell. 
 Main distributions that meet these requirements are
 
 * Arch Linux and Arch Linux based distros
-* Ubuntu 15.04
+* Ubuntu 15.04 and 15.10 (**Ubuntu 14.04 and 14.10 are not supported**)
 * elementary OS Freya
 * Debian Jessie, Testing or Unstable
 * Gentoo
-* Fedora 21 and 22
-* OpenSuse 13.2 and Tumbleweed
+* Fedora 21, 22 and 23
+* openSUSE 13.2 and Tumbleweed
 
-Derivatives of these distributions should work, aswell.
+Derivatives of these distributions should work, as well.
 
-If your distribution is not listed, please check the requirements yourself.
+If your distribution isn't listed, please check the requirements yourself.
 
 ### Installation
 
@@ -50,22 +50,29 @@ If your distribution is not listed, please check the requirements yourself.
     rm -rf ~/.local/share/themes/{Arc,Arc-Darker,Arc-Dark}
     rm -rf ~/.themes/{Arc,Arc-Darker,Arc-Dark}
 
-**Packages**
+#### Packages
 
-Prebuilt packages for Ubuntu, Debian, Fedora and openSUSE are available at 
-
+Prebuilt packages for Ubuntu, Debian, Fedora and openSUSE are available at  
 http://software.opensuse.org/download.html?project=home%3AHorst3180&package=arc-theme  
+
+A non-transparent version of the theme is available here  
+http://software.opensuse.org/download.html?project=home%3AHorst3180&package=arc-theme-solid  
+
 **Note:** elementary OS Freya users can install the package for Ubuntu 15.04
+
+--
 
 Arch Linux users can install the theme from the AUR
 
-https://aur.archlinux.org/packages/gtk-theme-arc-git/
+**Official Releases**: https://aur.archlinux.org/packages/gtk-theme-arc/  
 
-**Note:** If you're having trouble with the AUR package please email the package maintainer at zach@zach-adams.com before creating an issue.
+**Development Releases**: https://aur.archlinux.org/packages/gtk-theme-arc-git/  
 
-**Manual Installation**
+**Note:** If you're having trouble with the AUR packages please email the package maintainer at zach@zach-adams.com before creating an issue.
 
-To build the theme you need 
+#### Manual Installation
+
+To build the theme you'll need 
 * `autoconf`
 * `automake`
 * `pkg-config` or `pkgconfig` if you use Fedora
@@ -132,6 +139,11 @@ Now open the Plank preferences window by executing `plank --preferences` from a 
 
 ### Troubleshooting
 
+If you have Ubuntu with a newer GTK/Gnome version than the one included by default (i.e Ubuntu 14.04 with GTK 3.14 or Ubuntu 15.04 with GTK 3.16, etc.) the prebuilt packages won't work properly and you have to install the theme manually as described above.
+This is also true for other distros with a different GTK/Gnome version than the one included by default
+
+--
+
 If you get artifacts like black or invisible backgrounds under Unity, disable overlay scrollbars with
 
     gsettings set com.canonical.desktop.interface scrollbar-mode normal
@@ -141,4 +153,4 @@ If you get artifacts like black or invisible backgrounds under Unity, disable ov
 If you find a bug, please report it at https://github.com/horst3180/arc-theme/issues
 
 ### Full Preview
-![alt tag](http://i.imgur.com/tD1OBQ3.png)
+![A full screenshot of the Arc theme](http://i.imgur.com/tD1OBQ3.png)
