@@ -60,10 +60,10 @@
     color: #ffffff; }
 
 .view {
-  color: #5c616c;
+  color: #303843;
   background-color: #ffffff; }
   .view.dim-label, .view.label.separator, .header-bar .view.subtitle {
-    color: rgba(92, 97, 108, 0.55); }
+    color: rgba(48, 56, 67, 0.55); }
     .view.dim-label:selected, .view.label.separator:selected, .header-bar .view.subtitle:selected, .view.dim-label:selected:focus, .view.label.separator:selected:focus, .header-bar .view.subtitle:selected:focus {
       color: rgba(255, 255, 255, 0.65);
       text-shadow: none; }
@@ -142,7 +142,7 @@ GtkTextView {
   padding: 5px 8px 6px;
   border-radius: 3px;
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  color: #5c616c;
+  color: #303843;
   border-color: #cfd6e6;
   background-color: #ffffff;
   background-image: linear-gradient(to bottom, #ffffff); }
@@ -153,7 +153,7 @@ GtkTextView {
     padding-right: 3px; }
   .entry.flat, .entry.flat:focus {
     padding: 2px;
-    color: #5c616c;
+    color: #303843;
     border-color: #cfd6e6;
     background-color: #ffffff;
     background-image: linear-gradient(to bottom, #ffffff);
@@ -161,7 +161,7 @@ GtkTextView {
     border-radius: 0; }
   .entry:focus {
     background-clip: border-box;
-    color: #5c616c;
+    color: #303843;
     border-color: #5BFF96;
     background-color: #ffffff;
     background-image: linear-gradient(to bottom, #ffffff); }
@@ -2797,7 +2797,7 @@ PantheonTerminalPantheonTerminalWindow .notebook.header.top {
 
 GtkHTML {
   background-color: #ffffff;
-  color: #5c616c; }
+  color: #303843; }
   GtkHTML:active {
     color: #ffffff;
     background-color: #5BFF96; }
@@ -3577,7 +3577,7 @@ GraniteWidgetsXsEntry.entry {
 
 .h4,
 .category-label {
-  color: #8a8e96;
+  color: #6b7179;
   font-weight: 600; }
 
 .h4 {
@@ -4054,13 +4054,13 @@ MarlinViewWindow .source-list.sidebar.view .scrollbar .slider, GeditFileBrowserW
 
 /* GTK NAMED COLORS */
 @define-color theme_fg_color #8a8a8a;
-@define-color theme_text_color #5c616c;
+@define-color theme_text_color #303843;
 @define-color theme_bg_color #F5F6F7;
 @define-color theme_base_color #ffffff;
 @define-color theme_selected_bg_color #5BFF96;
 @define-color theme_selected_fg_color #ffffff;
 @define-color fg_color #8a8a8a;
-@define-color text_color #5c616c;
+@define-color text_color #303843;
 @define-color bg_color #F5F6F7;
 @define-color base_color #ffffff;
 @define-color selected_bg_color #5BFF96;
@@ -4069,7 +4069,7 @@ MarlinViewWindow .source-list.sidebar.view .scrollbar .slider, GeditFileBrowserW
 @define-color insensitive_fg_color alpha(#8a8a8a,0.5);
 @define-color insensitive_base_color #ffffff;
 @define-color theme_unfocused_fg_color #8a8a8a;
-@define-color theme_unfocused_text_color #5c616c;
+@define-color theme_unfocused_text_color #303843;
 @define-color theme_unfocused_bg_color #F5F6F7;
 @define-color theme_unfocused_base_color #ffffff;
 @define-color borders #dcdfe3;
